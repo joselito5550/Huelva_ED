@@ -1,0 +1,48 @@
+# Project: Proyecto1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = Cola.o diccionario.o letranueva.o Lista.o palabra.o menu.o clasificador.o $(RES)
+LINKOBJ  = Cola.o diccionario.o letranueva.o Lista.o palabra.o menu.o clasificador.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  -fmessage-length=0 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = practica2.exe
+CXXFLAGS = $(CXXINCS)   -fmessage-length=0
+CFLAGS = $(INCS)   -fmessage-length=0
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before practica2.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "practica2.exe" $(LIBS)
+
+Cola.o: Cola.cpp
+	$(CPP) -c Cola.cpp -o Cola.o $(CXXFLAGS)
+
+diccionario.o: diccionario.cpp
+	$(CPP) -c diccionario.cpp -o diccionario.o $(CXXFLAGS)
+
+letranueva.o: letranueva.cpp
+	$(CPP) -c letranueva.cpp -o letranueva.o $(CXXFLAGS)
+
+Lista.o: Lista.cpp
+	$(CPP) -c Lista.cpp -o Lista.o $(CXXFLAGS)
+
+palabra.o: palabra.cpp
+	$(CPP) -c palabra.cpp -o palabra.o $(CXXFLAGS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+clasificador.o: clasificador.cpp
+	$(CPP) -c clasificador.cpp -o clasificador.o $(CXXFLAGS)
